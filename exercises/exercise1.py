@@ -22,11 +22,11 @@ class Circle():
         self.radio= radio
 
     def area(self):
-        area= self.radio * 3.14
+        area= round(self.radio * 3.14, 2) 
         return area
         
     def perimetro(self):
-        perimetro= (self.radio *2) *3.14
+        perimetro= round((self.radio *2) *3.14, 2)
         return perimetro
 
 
