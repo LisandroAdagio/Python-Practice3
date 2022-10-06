@@ -3,7 +3,7 @@
 from math import pi
 
 
-class Circle:
+class Circle():
     """Todo cículo tiene un radio y se desea conocer tanto el área como el
     perímetro (longitud de circunferencia).
 
@@ -17,6 +17,21 @@ class Circle:
         - No utilizar Properties
         - Utilizar Type Hints en todos los métodos y variables
     """
+
+    def __init__(self, radio: int):
+        self.radio= radio
+
+    def area(self):
+        area= self.radio * 3.14
+        return area
+        
+    def perimetro(self):
+        perimetro= (self.radio *2) *3.14
+        return perimetro
+
+
+
+
 
 
 # NO MODIFICAR - INICIO
@@ -43,3 +58,7 @@ except TypeError:
 assert Circle(1).area() == 3.14
 assert Circle(1).perimetro() == 6.28
 # NO MODIFICAR - FIN
+circle.radio
+circle.area()
+circle.perimetro()
+
