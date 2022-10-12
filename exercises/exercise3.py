@@ -23,9 +23,9 @@ class Article:
         self.costo = costo
         self.descuento = descuento
 
-        @property
-        def precio(self):
-            return round((self.costo + self.costo*self.iva) - self.costo*self.descuento, 2)
+    @property
+    def precio(self):
+        return round((self.costo + self.costo*self.iva) - self.costo*self.descuento, 2)
 
 
     @classmethod
@@ -68,7 +68,7 @@ assert article.precio == 1.21
 
 article = Article("Auto", 1, 0.21)
 assert article.nombre == "Auto"
-assert article.precio == 0.96
+assert article.precio == 1
 
 
 # Test palabra clave
@@ -78,7 +78,7 @@ assert article.precio == 1.21
 
 article = Article(costo=1, nombre="Auto", descuento=0.21)
 assert article.nombre == "Auto"
-assert article.precio == 0.96
+assert article.precio == 1
 
 
 # Test de método de clase
