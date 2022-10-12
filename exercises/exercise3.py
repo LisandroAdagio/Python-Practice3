@@ -1,7 +1,11 @@
 """Properties"""
 
 
+from ast import Return
+
+
 class Article:
+    iva= 0.21
     """Re-Escribir el ejercicio anterior utilizando una property en vez de un
     método de instancia.
 
@@ -14,7 +18,19 @@ class Article:
         - No utilizar Dataclasses
         - Utilizar Type Hints en todos los métodos y variables
     """
+    def __init__(self, nombre: str, costo: int, descuento: float= 0):
+        self.nombre = nombre
+        self.costo = costo
+        self.descuento = descuento
 
+        @property
+        def precio(self):
+            return round((self.costo + self.costo*self.iva) - self.costo*self.descuento, 2)
+
+
+    @classmethod
+    def actualizar_iva(self, iva2): #método de clase
+        self.iva= iva2
 
 # NO MODIFICAR - INICIO
 # Test parámetro obligatorio

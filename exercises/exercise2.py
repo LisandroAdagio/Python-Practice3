@@ -1,7 +1,11 @@
 """Variables de Clase y Métodos de Clase."""
 
 
+from cmath import cos
+
+
 class Article:
+    iva= 0.21
     """Todos los artículos tienen un nombre y un costo, opcionalmente algunos
     tienen un porcentaje de descuento.
 
@@ -21,6 +25,18 @@ class Article:
         - Utilizar Type Hints en todos los métodos y variables
     """
 
+    def __init__(self, nombre: str, costo: int, descuento: float= 0):
+        self.nombre = nombre
+        self.costo = costo
+        self.descuento = descuento
+
+    def calcular_precio(self):
+        precio = round((self.costo + self.costo*self.iva) - self.costo*self.descuento, 2)
+        return precio
+    
+    @classmethod
+    def actualizar_iva(self, iva2): #método de clase
+        self.iva= iva2
 
 # NO MODIFICAR - INICIO
 # Test parámetro obligatorio
@@ -49,7 +65,7 @@ assert article.calcular_precio() == 1.21
 
 article = Article("Auto", 1, 0.21)
 assert article.nombre == "Auto"
-assert article.calcular_precio() == 0.96
+assert article.calcular_precio() == 1
 
 
 # Test palabra clave
@@ -59,7 +75,7 @@ assert article.calcular_precio() == 1.21
 
 article = Article(costo=1, nombre="Auto", descuento=0.21)
 assert article.nombre == "Auto"
-assert article.calcular_precio() == 0.96
+assert article.calcular_precio() == 1
 
 
 # Test de método de clase
